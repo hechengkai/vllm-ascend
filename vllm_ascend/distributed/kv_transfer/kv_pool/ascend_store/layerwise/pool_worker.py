@@ -768,7 +768,8 @@ class LayerwiseKVPoolWorker(BaseKVPoolWorker):
         end_token: int,
     ) -> str:
         assert self.layerwise_backend is not None
-        return self.layerwise_backend.make_partial_key(
+        assert self.layerwise_keys is not None
+        key = self.layerwise_backend.make_partial_key(
             self.model_name,
             request.req_id,
             group_id,
@@ -778,6 +779,7 @@ class LayerwiseKVPoolWorker(BaseKVPoolWorker):
             self.pp_rank,
             self.pp_size,
         )
+        return self.layerwise_keys.with_pcp_rank(key, self.pcp_rank)
 
     def _make_mooncake_layerwise_key(self, block_hash_or_tail: str) -> str:
         return self._make_layerwise_full_key(0, block_hash_or_tail)

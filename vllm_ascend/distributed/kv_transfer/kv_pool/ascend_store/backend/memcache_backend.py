@@ -154,12 +154,15 @@ class MemcacheBackend(Backend):
         grouped_block_size: list[int],
     ) -> LayerwiseKeyBuilder:
         num_groups = len(grouped_block_size)
-        pp_size = vllm_config.parallel_config.pipeline_parallel_size
+        parallel = vllm_config.parallel_config
+        pp_size = parallel.pipeline_parallel_size
+        # KDA state is head-sharded across PCP even when MLA KV is replicated.
+        pcp_size = getattr(parallel, "prefill_context_parallel_size", 1)
 
         def make_key(group: int, block_hash: str, head: int, stage: int) -> str:
             return make_full_key(model_name, group, block_hash, head, num_groups, stage, pp_size)
 
-        return LayerwiseKeyBuilder(make_key, pp_size)
+        return LayerwiseKeyBuilder(make_key, pp_size, pcp_size)
 
     @classmethod
     def make_partial_key(
