@@ -768,20 +768,18 @@ class LayerwiseKVPoolWorker(BaseKVPoolWorker):
         end_token: int,
     ) -> str:
         assert self.layerwise_backend is not None
-        assert self.layerwise_keys is not None
-        key = self.layerwise_backend.make_partial_key(
-            self.model_name,
-            request.req_id,
-            group_id,
-            block_index,
-            end_token,
-            self.metadata[group_id].head_or_tp_rank,
-            self.pp_rank,
-            self.pp_size,
+        return self.layerwise_backend.make_partial_key(
+            model_name=self.model_name,
+            req_id=request.req_id,
+            group_id=group_id,
+            block_index=block_index,
+            end_token=end_token,
+            head_or_tp_rank=self.metadata[group_id].head_or_tp_rank,
+            pp_rank=self.pp_rank,
+            pp_size=self.pp_size,
+            pcp_rank=self.pcp_rank,
+            pcp_size=self.pcp_size,
         )
-        if self.layerwise_keys.pcp_size > 1:
-            return f"{key}@pcp_size:{self.layerwise_keys.pcp_size}@pcp_rank:{self.pcp_rank}"
-        return key
 
     def _make_mooncake_layerwise_key(self, block_hash_or_tail: str) -> str:
         return self._make_layerwise_full_key(0, block_hash_or_tail)
