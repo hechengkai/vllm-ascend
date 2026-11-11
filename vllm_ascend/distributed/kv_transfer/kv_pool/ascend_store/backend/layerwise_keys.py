@@ -15,10 +15,7 @@ class LayerwiseKeyBuilder:
     pcp_size: int = 1
 
     def make_full_key(self, group_id: int, block_hash: str, rank: int, stage: int, pcp_rank: int = 0) -> str:
-        return self.with_pcp_rank(self.make_base_key(group_id, block_hash, rank, stage), pcp_rank)
-
-    def with_pcp_rank(self, key: str, pcp_rank: int = 0) -> str:
-        """Keep full-block and request-scoped snapshot shard identities aligned."""
+        key = self.make_base_key(group_id, block_hash, rank, stage)
         if self.pcp_size > 1:
             # Each PCP worker owns its own PUT/GET sessions. Including the
             # world size also prevents reuse across incompatible topologies.

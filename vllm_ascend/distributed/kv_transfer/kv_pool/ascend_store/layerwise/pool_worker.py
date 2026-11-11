@@ -779,7 +779,9 @@ class LayerwiseKVPoolWorker(BaseKVPoolWorker):
             self.pp_rank,
             self.pp_size,
         )
-        return self.layerwise_keys.with_pcp_rank(key, self.pcp_rank)
+        if self.layerwise_keys.pcp_size > 1:
+            return f"{key}@pcp_size:{self.layerwise_keys.pcp_size}@pcp_rank:{self.pcp_rank}"
+        return key
 
     def _make_mooncake_layerwise_key(self, block_hash_or_tail: str) -> str:
         return self._make_layerwise_full_key(0, block_hash_or_tail)
