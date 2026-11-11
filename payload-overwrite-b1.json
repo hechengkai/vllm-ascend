@@ -1,0 +1,154 @@
+{
+  "record_type": "allowlisted excerpts of historical evidence; not a new validation run",
+  "model_scope": "GLM-5.3-Flash four-layer BF16 random checkpoint, original cache dimensions; A3, PCP2, TP1, PP1, DCP1",
+  "historical_base_commit": "6e3299ab492ddbadb4c8e3a00b88c982c9a28131",
+  "hardware_validation_note": "Historical NPU evidence predates the later KeyBuilder refactors and any rebase onto current main. It does not certify a rebased PR head.",
+  "window": "b1: a separate payload-capturing run; do not present this as the key1 diagnostic window",
+  "sources": [
+    {
+      "file": "artifacts__memcache-layerwise-1-pcp2-b1__transfer-audit-summary.json",
+      "sha256": "33156a6df7f24a276fa553334402966905e1717cbf38e81f3fd7248f6efdc59a"
+    },
+    {
+      "file": "artifacts__b1-validation-summary.json",
+      "sha256": "ddfc05a75fdc1ddb337ddbc04b5006749db58a84790032792d64eb195a90ce0f"
+    }
+  ],
+  "recorded_model_status": "numerical_failed",
+  "recorded_copy_integrity": "failed",
+  "recorded_ownership": "failed",
+  "total_overlapping_descriptors": 10,
+  "different_kda_payload_ranges": [
+    {
+      "identity": "gva",
+      "offset": 72057594119487488,
+      "size": 73728,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 66213,
+      "group_id": 2,
+      "layer_id": 0
+    },
+    {
+      "identity": "gva",
+      "offset": 72057594119561216,
+      "size": 1048576,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 972812,
+      "group_id": 2,
+      "layer_id": 0
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598398889984,
+      "size": 73728,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 66203,
+      "group_id": 3,
+      "layer_id": 1
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598398963712,
+      "size": 1048576,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 972501,
+      "group_id": 3,
+      "layer_id": 1
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598403379200,
+      "size": 73728,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 66153,
+      "group_id": 4,
+      "layer_id": 2
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598403452928,
+      "size": 1048576,
+      "writer_ranks": [
+        1,
+        0
+      ],
+      "different_bytes": 972202,
+      "group_id": 4,
+      "layer_id": 2
+    }
+  ],
+  "own_rank_get_mismatches": [
+    {
+      "identity": "gva",
+      "offset": 72057594119487488,
+      "size": 73728,
+      "rank": 1,
+      "different_bytes": 66213
+    },
+    {
+      "identity": "gva",
+      "offset": 72057594119561216,
+      "size": 1048576,
+      "rank": 1,
+      "different_bytes": 972812
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598398889984,
+      "size": 73728,
+      "rank": 1,
+      "different_bytes": 66203
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598398963712,
+      "size": 1048576,
+      "rank": 1,
+      "different_bytes": 972501
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598403379200,
+      "size": 73728,
+      "rank": 1,
+      "different_bytes": 66153
+    },
+    {
+      "identity": "gva",
+      "offset": 72057598403452928,
+      "size": 1048576,
+      "rank": 1,
+      "different_bytes": 972202
+    }
+  ],
+  "cold_vs_hit_logits": {
+    "status": "failed",
+    "atol": 0.02,
+    "rtol": 0.02,
+    "finite": true,
+    "shape": [
+      32,
+      154880
+    ],
+    "max_abs_error": 8.203125,
+    "mean_abs_error": 1.137725830078125,
+    "first_divergent_step": 0,
+    "top1_agreement": 0.0
+  },
+  "scope": "Ten cross-rank ranges overlap in the original report, but only these six KDA ranges have different bytes; four replicated MLA/Indexer ranges have equal bytes. No raw key strings were captured in b1."
+}

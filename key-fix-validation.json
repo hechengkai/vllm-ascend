@@ -1,0 +1,72 @@
+{
+  "record_type": "allowlisted excerpts of historical evidence; not a new validation run",
+  "model_scope": "GLM-5.3-Flash four-layer BF16 random checkpoint, original cache dimensions; A3, PCP2, TP1, PP1, DCP1",
+  "historical_base_commit": "6e3299ab492ddbadb4c8e3a00b88c982c9a28131",
+  "hardware_validation_note": "Historical NPU evidence predates the later KeyBuilder refactors and any rebase onto current main. It does not certify a rebased PR head.",
+  "window": "k1c: complete validator after restoring key-diagnostic hooks",
+  "historical_key_fix_commit": "bc525b47198f1807304a6b95fdc8a28bdbf57a4a",
+  "chunk_budget": 4608,
+  "sources": [
+    {
+      "file": "key1-candidate/numerical.json",
+      "sha256": "bb366b5309429ae4491db15d3726c43813366235683d43aaa25a9f0db0397947"
+    },
+    {
+      "file": "key1-candidate/no-pool-crosscheck.json",
+      "sha256": "2c5042972c883a32147018e76b9f836f6618869cb5ccd332643a939ffca45a9c"
+    },
+    {
+      "file": "KEY_EVIDENCE.md",
+      "sha256": "b32c5e938b5e3aac7fef6c3a0c8d5838aa2d086d02ff48ddb76cfa51a0530022"
+    }
+  ],
+  "numerical": {
+    "steps": 32,
+    "finite": true,
+    "atol": 0.02,
+    "rtol": 0.02,
+    "max_abs_error": 0.0,
+    "mean_abs_error": 0.0,
+    "top1_agreement": 1.0,
+    "allclose": true
+  },
+  "no_pool_crosscheck": {
+    "status": "passed",
+    "input_equal": {
+      "tokens": true,
+      "continuation": true
+    },
+    "forcing_verified": {
+      "baseline": true,
+      "candidate": true
+    },
+    "cold_vs_no_pool": {
+      "status": "passed",
+      "finite": true,
+      "shape": [
+        32,
+        154880
+      ],
+      "max_abs_error": 0.0,
+      "top1_agreement": 1.0
+    },
+    "cold_vs_hit": {
+      "status": "passed",
+      "finite": true,
+      "shape": [
+        32,
+        154880
+      ],
+      "max_abs_error": 0.0,
+      "top1_agreement": 1.0
+    }
+  },
+  "transfer_audit": {
+    "status": "passed",
+    "copy_integrity": "passed",
+    "ownership_status": "passed",
+    "cross_rank_write_conflicts": 0,
+    "missing_reference_segments": 0,
+    "unsuccessful_transfers": 0
+  }
+}

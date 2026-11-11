@@ -1,0 +1,42 @@
+{
+  "record_type": "allowlisted provenance excerpt from existing local records; no weight reads or new model validation",
+  "model_scope": "four-layer BF16 random checkpoint with original GLM-5.3-Flash cache dimensions",
+  "random_seed": 20261109,
+  "config_sha256": "a5eae530cc96239973d356e896dfa18db939a03e775cb057695d47ff30ec900d",
+  "recorded_fixture_manifest_sha256": "0d73da7fba46ed38fd42f027f1997702637241051acc6c0afeb9df27bb7dca92",
+  "weight_layout_reported_in_original_summary": {
+    "dtype": "BF16",
+    "safetensors_shards": 7,
+    "elements": 10100785688
+  },
+  "sources": [
+    {
+      "file": "d2-source-manifest.json",
+      "sha256": "4ed7446508b8dffe9e684239f08a82ce9966407856a9da5da88863d01af6e69e",
+      "recorded_model_manifest_sha256": "0d73da7fba46ed38fd42f027f1997702637241051acc6c0afeb9df27bb7dca92"
+    },
+    {
+      "file": "d3-source-manifest.json",
+      "sha256": "d114025145718fe14f46f15e54054fa0a1e8e9df3d71711ea612891c0e96d8a0",
+      "recorded_model_manifest_sha256": "0d73da7fba46ed38fd42f027f1997702637241051acc6c0afeb9df27bb7dca92"
+    },
+    {
+      "file": "h2-133-source-manifest.json",
+      "sha256": "de711679dab8db32fcfd4662355a3a361824d4af92280b39077bdee0dce6c230",
+      "recorded_model_manifest_sha256": "0d73da7fba46ed38fd42f027f1997702637241051acc6c0afeb9df27bb7dca92"
+    },
+    {
+      "file": "../glm53-pcp-pooling-20261109/REPORT.md",
+      "sha256": "fba4d3db9fbd179a28249b7cefe84ad2cacf4c499ee07083a369169918544529",
+      "selected_lines": [
+        35,
+        37
+      ]
+    }
+  ],
+  "limitations": [
+    "The recorded fixture-manifest SHA is not a single-shard or newly computed aggregate weights SHA.",
+    "The full fixture manifest and individual shard hashes were not present in the inspected local material.",
+    "No large weights were read or hashed, and no remote access or NPU execution was performed to prepare this provenance."
+  ]
+}

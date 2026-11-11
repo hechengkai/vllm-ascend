@@ -1,0 +1,1403 @@
+{
+  "record_type": "allowlisted excerpts of historical evidence; not a new validation run",
+  "model_scope": "GLM-5.3-Flash four-layer BF16 random checkpoint, original cache dimensions; A3, PCP2, TP1, PP1, DCP1",
+  "historical_base_commit": "6e3299ab492ddbadb4c8e3a00b88c982c9a28131",
+  "hardware_validation_note": "Historical NPU evidence predates the later KeyBuilder refactors and any rebase onto current main. It does not certify a rebased PR head.",
+  "scope": "Direct key/allocation/copy/publication metadata. No payload or model-numerical oracle in this diagnostic window.",
+  "variants": {
+    "baseline": {
+      "sources": [
+        {
+          "file": "key1-baseline/evidence.json",
+          "sha256": "3e2375c9c424023a2f6cd945622128bf97c94afb18b029be54cb2579a133b84c"
+        },
+        {
+          "file": "KEY_EVIDENCE.md",
+          "sha256": "b32c5e938b5e3aac7fef6c3a0c8d5838aa2d086d02ff48ddb76cfa51a0530022"
+        },
+        {
+          "file": "key1-baseline/keys-r0.json",
+          "sha256": "374358c7ece423fe18be6bde1dc824192cf673d76ab7abba9161d419fddc0756"
+        },
+        {
+          "file": "key1-baseline/keys-r1.json",
+          "sha256": "4323b2d12a3445964bab29e51be19e805acc379db24721a208d01ca500dd5b03"
+        }
+      ],
+      "diagnostic_status": "passed",
+      "diagnostic_status_means": "The key observation succeeded; not model validation passed.",
+      "observed_diagnostic": true,
+      "groups": [
+        {
+          "group_id": 2,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": true,
+          "same_base_gva": true,
+          "common_base_gvas": [
+            72057594042941440
+          ]
+        },
+        {
+          "group_id": 3,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": true,
+          "same_base_gva": true,
+          "common_base_gvas": [
+            72057594047430656
+          ]
+        },
+        {
+          "group_id": 4,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": true,
+          "same_base_gva": true,
+          "common_base_gvas": [
+            72057594051919872
+          ]
+        }
+      ],
+      "ranks": {
+        "0": {
+          "worker_metadata": {
+            "pcp_rank": 0,
+            "pcp_size": 2,
+            "pp_rank": 0,
+            "pp_size": 1,
+            "tp_rank": 0,
+            "tp_size": 1
+          },
+          "full_key_events": [
+            {
+              "sequence": 3,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 5,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 7,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 18,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 21,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 24,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            }
+          ],
+          "allocations": [
+            {
+              "mapping_id": "alloc:4:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594042941440,
+              "allocation_size": 4489216,
+              "group_id": 2,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:6:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594047430656,
+              "allocation_size": 4489216,
+              "group_id": 3,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:8:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594051919872,
+              "allocation_size": 4489216,
+              "group_id": 4,
+              "transfer_blocks": [
+                1
+              ]
+            }
+          ],
+          "allocation_events": [
+            {
+              "sequence": 4,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594042941440
+                }
+              ]
+            },
+            {
+              "sequence": 6,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594047430656
+                }
+              ]
+            },
+            {
+              "sequence": 8,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594051919872
+                }
+              ]
+            }
+          ],
+          "copy_events": [
+            {
+              "sequence": 9,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594042941440,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594043015168,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 10,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594047430656,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594047504384,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 11,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594051919872,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594051993600,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "publication_events": [
+            {
+              "sequence": 13,
+              "kind": "batch_write_finish",
+              "entries": [
+                {
+                  "source_index": 2,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 3,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 4,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                }
+              ]
+            }
+          ]
+        },
+        "1": {
+          "worker_metadata": {
+            "pcp_rank": 1,
+            "pcp_size": 2,
+            "pp_rank": 0,
+            "pp_size": 1,
+            "tp_rank": 0,
+            "tp_size": 1
+          },
+          "full_key_events": [
+            {
+              "sequence": 3,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 5,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 7,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 18,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 21,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 24,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 1,
+              "pp_rank": 0
+            }
+          ],
+          "allocations": [
+            {
+              "mapping_id": "alloc:4:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594042941440,
+              "allocation_size": 4489216,
+              "group_id": 2,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:6:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594047430656,
+              "allocation_size": 4489216,
+              "group_id": 3,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:8:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+              "base_gva": 72057594051919872,
+              "allocation_size": 4489216,
+              "group_id": 4,
+              "transfer_blocks": [
+                1
+              ]
+            }
+          ],
+          "allocation_events": [
+            {
+              "sequence": 4,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594042941440
+                }
+              ]
+            },
+            {
+              "sequence": 6,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594047430656
+                }
+              ]
+            },
+            {
+              "sequence": 8,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "size": 4489216,
+                  "returned_gva": 72057594051919872
+                }
+              ]
+            }
+          ],
+          "copy_events": [
+            {
+              "sequence": 9,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594042941440,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594043015168,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 10,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594047430656,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594047504384,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 11,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594051919872,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594051993600,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "publication_events": [
+            {
+              "sequence": 13,
+              "kind": "batch_write_finish",
+              "entries": [
+                {
+                  "source_index": 2,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 3,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 4,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0",
+                  "input_result": 0,
+                  "result": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "candidate": {
+      "sources": [
+        {
+          "file": "key1-candidate/evidence.json",
+          "sha256": "dcb2ec1815581729c2aac3a3ed7d66277abd20e0562e118d2905948eda359850"
+        },
+        {
+          "file": "KEY_EVIDENCE.md",
+          "sha256": "b32c5e938b5e3aac7fef6c3a0c8d5838aa2d086d02ff48ddb76cfa51a0530022"
+        },
+        {
+          "file": "key1-candidate/keys-r0.json",
+          "sha256": "bad6fd125b7ea043e9ccc6d2ab2ae1a8e46bed5681c6fb31be4f56405d741b98"
+        },
+        {
+          "file": "key1-candidate/keys-r1.json",
+          "sha256": "bd5574901a12518f4238abc361ff65dae5c0d28688c85424825eec1202fe2955"
+        }
+      ],
+      "diagnostic_status": "passed",
+      "diagnostic_status_means": "The key observation succeeded; not model validation passed.",
+      "observed_diagnostic": true,
+      "groups": [
+        {
+          "group_id": 2,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": false,
+          "same_base_gva": false,
+          "common_base_gvas": []
+        },
+        {
+          "group_id": 3,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": false,
+          "same_base_gva": false,
+          "common_base_gvas": []
+        },
+        {
+          "group_id": 4,
+          "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+          "head_or_tp_rank": 0,
+          "pp_rank": 0,
+          "same_key": false,
+          "same_base_gva": false,
+          "common_base_gvas": []
+        }
+      ],
+      "ranks": {
+        "0": {
+          "worker_metadata": {
+            "pcp_rank": 0,
+            "pcp_size": 2,
+            "pp_rank": 0,
+            "pp_size": 1,
+            "tp_rank": 0,
+            "tp_size": 1
+          },
+          "full_key_events": [
+            {
+              "sequence": 3,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 5,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 7,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 18,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 21,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 24,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 0,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            }
+          ],
+          "allocations": [
+            {
+              "mapping_id": "alloc:4:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "base_gva": 72057598342397952,
+              "allocation_size": 4489216,
+              "group_id": 2,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:6:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "base_gva": 72057594061946880,
+              "allocation_size": 4489216,
+              "group_id": 3,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:8:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+              "base_gva": 72057598346887168,
+              "allocation_size": 4489216,
+              "group_id": 4,
+              "transfer_blocks": [
+                1
+              ]
+            }
+          ],
+          "allocation_events": [
+            {
+              "sequence": 4,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "size": 4489216,
+                  "returned_gva": 72057598342397952
+                }
+              ]
+            },
+            {
+              "sequence": 6,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "size": 4489216,
+                  "returned_gva": 72057594061946880
+                }
+              ]
+            },
+            {
+              "sequence": 8,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "size": 4489216,
+                  "returned_gva": 72057598346887168
+                }
+              ]
+            }
+          ],
+          "copy_events": [
+            {
+              "sequence": 9,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057598342397952,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057598342471680,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 10,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594061946880,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594062020608,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 11,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057598346887168,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057598346960896,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "publication_events": [
+            {
+              "sequence": 13,
+              "kind": "batch_write_finish",
+              "entries": [
+                {
+                  "source_index": 2,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 3,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 4,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:0",
+                  "input_result": 0,
+                  "result": 0
+                }
+              ]
+            }
+          ]
+        },
+        "1": {
+          "worker_metadata": {
+            "pcp_rank": 1,
+            "pcp_size": 2,
+            "pp_rank": 0,
+            "pp_size": 1,
+            "tp_rank": 0,
+            "tp_size": 1
+          },
+          "full_key_events": [
+            {
+              "sequence": 3,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 5,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 7,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 18,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 2,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 21,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 3,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            },
+            {
+              "sequence": 24,
+              "kind": "full_key",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "group_id": 4,
+              "block_hash": "555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2",
+              "head_or_tp_rank": 0,
+              "pcp_rank": 1,
+              "pcp_size": 2,
+              "builder_pcp_size": 2,
+              "pp_rank": 0
+            }
+          ],
+          "allocations": [
+            {
+              "mapping_id": "alloc:4:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "base_gva": 72057594042941440,
+              "allocation_size": 4489216,
+              "group_id": 2,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:6:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "base_gva": 72057598337908736,
+              "allocation_size": 4489216,
+              "group_id": 3,
+              "transfer_blocks": [
+                1
+              ]
+            },
+            {
+              "mapping_id": "alloc:8:0",
+              "kind": "alloc",
+              "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+              "base_gva": 72057594047430656,
+              "allocation_size": 4489216,
+              "group_id": 4,
+              "transfer_blocks": [
+                1
+              ]
+            }
+          ],
+          "allocation_events": [
+            {
+              "sequence": 4,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "size": 4489216,
+                  "returned_gva": 72057594042941440
+                }
+              ]
+            },
+            {
+              "sequence": 6,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "size": 4489216,
+                  "returned_gva": 72057598337908736
+                }
+              ]
+            },
+            {
+              "sequence": 8,
+              "kind": "batch_alloc",
+              "entries": [
+                {
+                  "source_index": 0,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "size": 4489216,
+                  "returned_gva": 72057594047430656
+                }
+              ]
+            }
+          ],
+          "copy_events": [
+            {
+              "sequence": 9,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594042941440,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594043015168,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:4:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 2,
+                    "layer_id": 0,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 10,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057598337908736,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057598337982464,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:6:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 3,
+                    "layer_id": 1,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            },
+            {
+              "sequence": 11,
+              "kind": "copy",
+              "direction_code": 0,
+              "boundary": "_batch_copy_with_limits_aggregate",
+              "result": 0,
+              "segments": [
+                {
+                  "gva": 72057594047430656,
+                  "size": 73728,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    0
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                },
+                {
+                  "gva": 72057594047504384,
+                  "size": 1048576,
+                  "mapping_ids": [
+                    "alloc:8:0"
+                  ],
+                  "key_candidates": [
+                    "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1"
+                  ],
+                  "relative_offsets": [
+                    73728
+                  ],
+                  "context": {
+                    "group_id": 4,
+                    "layer_id": 2,
+                    "layer_idx_in_group": 0
+                  }
+                }
+              ]
+            }
+          ],
+          "publication_events": [
+            {
+              "sequence": 13,
+              "kind": "batch_write_finish",
+              "entries": [
+                {
+                  "source_index": 2,
+                  "key": "glm53-four-layer-bf16@2@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 3,
+                  "key": "glm53-four-layer-bf16@3@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "input_result": 0,
+                  "result": 0
+                },
+                {
+                  "source_index": 4,
+                  "key": "glm53-four-layer-bf16@4@555d5d9cd124f64500a0e016229ef2d1f014295f0e85c3b17a2b5f05b86b81d2@0@pcp_size:2@pcp_rank:1",
+                  "input_result": 0,
+                  "result": 0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

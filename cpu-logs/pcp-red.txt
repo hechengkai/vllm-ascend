@@ -1,0 +1,100 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____ TestGLM53Store.test_memcache_layerwise_round_trip_keeps_each_pcp_state ____
+
+self = <tests.ut.distributed.ascend_store.test_glm53_store.TestGLM53Store testMethod=test_memcache_layerwise_round_trip_keeps_each_pcp_state>
+
+    def test_memcache_layerwise_round_trip_keeps_each_pcp_state(self):
+>       self._check_memcache_layerwise_round_trip(tp_size=1, pcp_size=2)
+
+tests/ut/distributed/ascend_store/test_glm53_store.py:252: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/ut/distributed/ascend_store/test_glm53_store.py:359: in _check_memcache_layerwise_round_trip
+    self.assert_restored(worker, caches, source, target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tests.ut.distributed.ascend_store.test_glm53_store.TestGLM53Store testMethod=test_memcache_layerwise_round_trip_keeps_each_pcp_state>
+worker = <vllm_ascend.distributed.kv_transfer.kv_pool.ascend_store.layerwise.pool_worker.LayerwiseKVPoolWorker object at 0xffff3296ac00>
+caches = {'model.layers.0.linear_attn': (tensor([[[ 0.,  0.,  0.,  ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0.,  ...,  0.,  0.... 0.,  0.,  ...,  0.,  0.,  0.]]]], dtype=torch.bfloat16), tensor([], size=(24, 512, 1, 0), dtype=torch.bfloat16)), ...}
+source = [[1], [2], [3], [4], [5]], target = [[6], [7], [8], [9], [10]]
+masks = None
+
+    def assert_restored(self, worker, caches, source, target, masks=None):
+        for group_id, group in enumerate(worker.kv_cache_config.kv_cache_groups):
+            for name in group.layer_names:
+                for cache in caches[name]:
+                    if group_id == 1:
+                        self.assertTrue(torch.all(cache[target[group_id]] == -1))
+                    else:
+                        for index, (src, dst) in enumerate(zip(source[group_id], target[group_id])):
+                            if masks is None or masks[group_id][index]:
+>                               torch.testing.assert_close(cache[dst], cache[src])
+E                               AssertionError: Tensor-likes are not close!
+E                               
+E                               Mismatched elements: 48 / 48 (100.0%)
+E                               Greatest absolute difference: 1.0 at index (0, 0) (up to 1e-05 allowed)
+E                               Greatest relative difference: 0.08349609375 at index (0, 0) (up to 0.016 allowed)
+
+tests/ut/distributed/ascend_store/test_glm53_store.py:135: AssertionError
+____ TestGLM53Store.test_memcache_partial_keys_isolate_each_pcp_state_shard ____
+
+self = <tests.ut.distributed.ascend_store.test_glm53_store.TestGLM53Store testMethod=test_memcache_partial_keys_isolate_each_pcp_state_shard>
+
+    def test_memcache_partial_keys_isolate_each_pcp_state_shard(self):
+        plan = make_glm53_plan()
+        request = SimpleNamespace(req_id="same-request")
+        topology_keys = []
+        for pcp_size in (1, 2, 4):
+            full_keys = []
+            partial_keys = []
+            for pcp_rank in range(pcp_size):
+                worker = make_worker(
+                    self,
+                    kv_cache_config=plan,
+                    use_layerwise=True,
+                    use_mla=True,
+                    num_layers=4,
+                    pcp_size=pcp_size,
+                    pcp_rank=pcp_rank,
+                    extra_config={"backend": "memcache"},
+                )
+                worker.metadata = {2: SimpleNamespace(head_or_tp_rank=0)}
+                full_keys.append(worker._make_layerwise_full_key(2, "hash"))
+                partial_keys.append(worker._make_layerwise_partial_key(request, 2, 0, 513))
+                self.doCleanups()
+            if pcp_size == 1:
+                self.assertEqual(full_keys, ["llama-7b@2@hash@0"])
+                self.assertEqual(partial_keys, ["llama-7b@partial@same-request@2@0@513@0"])
+>           self.assertEqual(len(set(full_keys)), pcp_size)
+E           AssertionError: 1 != 2
+
+tests/ut/distributed/ascend_store/test_glm53_store.py:396: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  vllm.logger:pool_worker.py:170 Failed to get PP layer indices (pp_size=1), falling back to local layer addressing: not enough values to unpack (expected 2, got 0)
+WARNING  vllm.logger:pool_worker.py:170 Failed to get PP layer indices (pp_size=1), falling back to local layer addressing: not enough values to unpack (expected 2, got 0)
+WARNING  vllm.logger:pool_worker.py:170 Failed to get PP layer indices (pp_size=1), falling back to local layer addressing: not enough values to unpack (expected 2, got 0)
+_ TestBoundLayerwiseKeys.test_memcache_pcp_keys_cover_all_workers_and_isolate_topologies _
+
+self = <tests.ut.distributed.ascend_store.test_layerwise_keys.TestBoundLayerwiseKeys testMethod=test_memcache_pcp_keys_cover_all_workers_and_isolate_topologies>
+
+    def test_memcache_pcp_keys_cover_all_workers_and_isolate_topologies(self):
+>       self._check_pcp_keys(MemcacheBackend)
+
+tests/ut/distributed/ascend_store/test_layerwise_keys.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/ut/distributed/ascend_store/test_layerwise_keys.py:51: in _check_pcp_keys
+    self.assertEqual(builder.pcp_size, pcp_size)
+E   AssertionError: 1 != 2
+=============================== warnings summary ===============================
+../../../../usr/local/python3.12.16/lib/python3.12/site-packages/torch/jit/_script.py:362: 14 warnings
+  /usr/local/python3.12.16/lib/python3.12/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+------- generated xml file: <validation-artifacts>/pcp-red.xml --------
+=========================== short test summary info ============================
+FAILED tests/ut/distributed/ascend_store/test_glm53_store.py::TestGLM53Store::test_memcache_layerwise_round_trip_keeps_each_pcp_state
+FAILED tests/ut/distributed/ascend_store/test_glm53_store.py::TestGLM53Store::test_memcache_partial_keys_isolate_each_pcp_state_shard
+FAILED tests/ut/distributed/ascend_store/test_layerwise_keys.py::TestBoundLayerwiseKeys::test_memcache_pcp_keys_cover_all_workers_and_isolate_topologies
+3 failed, 14 warnings in 0.77s

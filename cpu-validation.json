@@ -1,0 +1,75 @@
+{
+  "record_type": "summary of CPU/static results reported by the PR preparation workflow; not a new test execution by the evidence extractor",
+  "main_revision_prefix": "1af7c5fc8",
+  "source_and_raw_log_hashes": {
+    "status": "recorded",
+    "source_hashes": {
+      "pcp/tests/ut/distributed/ascend_store/test_backend.py": "506e4e6bfc0949d19db1b55d63db1ab61929102280132d66f8060239e68b2d8c",
+      "pcp/tests/ut/distributed/ascend_store/test_glm53_store.py": "00d4f156c066f78596282dd75eb78350e159939cad41a73b4e34bbeccc41b87a",
+      "pcp/tests/ut/distributed/ascend_store/test_layerwise_keys.py": "74e9ed3c65edbecfbbfb32c75ff9ef8be4915b8ae035065ea0c74ff5ad3e60ce",
+      "pcp/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/backend/base.py": "51b5ae62df7001e9f0a7208daf423667079fde62fe34da74ea47ff576af4adaa",
+      "pcp/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/backend/memcache_backend.py": "f97934bdf394f55e3c7f238a575e785c2b1b48ac07066ea5e917c52d80c5a5c1",
+      "pcp/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/layerwise/pool_worker.py": "5c0d199302e2d4bb087dee65a49b029fc03b8765d9c5eb76fb529d47c453a33e",
+      "pcp/pyproject.toml": "204deac04a301361635e59abccf45d230429cb3f575b52f084dba02d866bc850",
+      "align/vllm_ascend/patch/platform/patch_mamba_block_aligned_split.py": "da3ec619de6e0b661643d95365408d412977f88e57d28983fc50bb82d874cff5",
+      "align/tests/ut/patch/platform/test_patch_mamba_block_aligned_split.py": "27a8bfe39e49ae5f15940209fb7d4805966f12cdd8b4cd5fba1e845a028027bb",
+      "align/pyproject.toml": "204deac04a301361635e59abccf45d230429cb3f575b52f084dba02d866bc850"
+    },
+    "raw_log_hashes": {
+      "pcp-red.log": "2f25156fc28c17a80a8575af0818daed5ccb1f2932cef6d7b0ad5b87c80e822e",
+      "pcp-green.log": "f0d057fb8ec0c71a66070d63a4fd904a3b1feda1fa05e123c733e81e129e75a1",
+      "align-green.log": "f7d09cfb8cfa7cb15f0658251b581414718bf906652316909cef0d7403332f5e",
+      "pcp-format.log": "43a924b51a97f9e57b36169e8cb2ea6d3027cb9d5a201c1fa60a2101a7c7297c",
+      "align-format.log": "49f6a693b1ac15dce53399a872244dacfef68eac838ec4cbf7165d866bf54493"
+    }
+  },
+  "npu_executed_for_this_rebase": false,
+  "checks": [
+    {
+      "name": "new PCP regression tests on unfixed rebased main",
+      "status": "expected_failure",
+      "failed": 3,
+      "elapsed_seconds": 0.77,
+      "purpose": "tests-only negative control"
+    },
+    {
+      "name": "focused CPU suite with key fix",
+      "status": "passed",
+      "passed": 208,
+      "elapsed_seconds": 6.25
+    },
+    {
+      "name": "independent alignment CPU suite",
+      "status": "passed",
+      "passed": 67,
+      "elapsed_seconds": 0.26
+    },
+    {
+      "name": "Ruff on changed files",
+      "status": "passed",
+      "files": 8
+    },
+    {
+      "name": "format.sh ci for key-fix worktree",
+      "status": "blocked",
+      "exit_code": 3,
+      "reason": "certificate verification failure while fetching ruff-pre-commit"
+    },
+    {
+      "name": "format.sh ci for alignment worktree",
+      "status": "blocked",
+      "exit_code": 3,
+      "reason": "certificate verification failure while fetching ruff-pre-commit"
+    }
+  ],
+  "scope": "Rebased-main CPU/static checks only. Historical A3 evidence is separately scoped to its recorded revisions; these results do not claim that the rebased PR heads ran on NPU or that full CI passed.",
+  "main_revision": "1af7c5fc8aa2c0007ea53a61d0805f53c7983019",
+  "tested_commits": {
+    "pcp": "c14add347a6c4ab9cb944ef77af0cd1ec9eca25e",
+    "alignment": "d6d4ff598d68da0a1eb43818bc99bb3cef5de61c"
+  },
+  "cpu_runtime_distributions": {
+    "vllm": "0.33.0+empty"
+  },
+  "official_vllm_main_requirement": "24420b7a341af37a9bc3186e6fc6062512e0aa58"
+}

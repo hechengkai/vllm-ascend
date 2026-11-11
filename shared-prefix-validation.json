@@ -1,0 +1,576 @@
+{
+  "record_type": "allowlisted excerpts of historical evidence; not a new validation run",
+  "model_scope": "GLM-5.3-Flash four-layer BF16 random checkpoint, original cache dimensions; A3, PCP2, TP1, PP1, DCP1",
+  "historical_base_commit": "6e3299ab492ddbadb4c8e3a00b88c982c9a28131",
+  "hardware_validation_note": "Historical NPU evidence predates the later KeyBuilder refactors and any rebase onto current main. It does not certify a rebased PR head.",
+  "scope": "One active request at a time; instrumented numerical evidence, not concurrency or performance. No natural B was run in the new pool.",
+  "sources": [
+    {
+      "file": "h2-shared-prefix/result.json",
+      "sha256": "c8f78c603455c8d1a84906875f0f8ce6db56370b21e47108beb95faacb1bb2aa"
+    },
+    {
+      "file": "h2-shared-prefix/inputs.json",
+      "sha256": "10a5d0478b96dc50eb58f1aa6f6a3b0346985fa0fb58fcf9afd140d38a24cc5d"
+    },
+    {
+      "file": "h2-shared-prefix/independent-raw-review.json",
+      "sha256": "0217b58e47dbd80db518679189c88104074294f8eb77fbfff5697988015360ee"
+    },
+    {
+      "file": "H2_SHARED_PREFIX.md",
+      "sha256": "54ae6bcf5e8072663724c05361b67035b92141a08e8695abdf2d964918f5a3db"
+    }
+  ],
+  "chunk_budget": 2048,
+  "actual_cache_granularity": 1152,
+  "inputs": {
+    "A_tokens": 2305,
+    "B_tokens": 3457,
+    "continuation_tokens": 32,
+    "common_prefix": 2304
+  },
+  "recorded_status": "passed",
+  "gates": {
+    "paths_valid": true,
+    "captures_valid": true,
+    "no_pool_oracle_valid": true,
+    "pool_numerics_valid": true
+  },
+  "request_order": [
+    "none-B-r0",
+    "none-B-r1",
+    "none-A-history",
+    "none-B-history",
+    "memcache-A-natural",
+    "memcache-B-prefix-hit"
+  ],
+  "pool_A": {
+    "path_status": "passed",
+    "reset": {
+      "success": true
+    },
+    "counter_delta": {
+      "vllm:ascend_store_load_get_duration_seconds_created": 0.0,
+      "vllm:ascend_store_load_get_keys_total": 0.0,
+      "external_prefix_cache_hits": 0.0,
+      "num_preemptions": 0.0,
+      "num_requests_waiting": 0.0,
+      "vllm:ascend_store_delayed_release_blocks": 0.0,
+      "generation_tokens": 32.0,
+      "vllm:ascend_store_load_get_duration_seconds_sum": 0.0,
+      "vllm:ascend_store_load_get_keys_created": 0.0,
+      "vllm:ascend_store_load_get_duration_seconds_count": 0.0,
+      "vllm:ascend_store_delayed_release_requests": 0.0,
+      "num_requests_running": 0.0,
+      "prefix_cache_hits": 0.0
+    },
+    "forced": false
+  },
+  "pool_B": {
+    "path_status": "passed",
+    "reset": {
+      "success": true
+    },
+    "counter_delta": {
+      "vllm:ascend_store_load_get_duration_seconds_created": 0.0,
+      "vllm:ascend_store_load_get_keys_total": 0.0,
+      "external_prefix_cache_hits": 2304.0,
+      "num_preemptions": 0.0,
+      "num_requests_waiting": 0.0,
+      "vllm:ascend_store_delayed_release_blocks": 0.0,
+      "generation_tokens": 32.0,
+      "vllm:ascend_store_load_get_duration_seconds_sum": 0.0,
+      "vllm:ascend_store_load_get_keys_created": 0.0,
+      "vllm:ascend_store_load_get_duration_seconds_count": 0.0,
+      "vllm:ascend_store_delayed_release_requests": 0.0,
+      "num_requests_running": 0.0,
+      "prefix_cache_hits": 0.0
+    },
+    "expected_external_tokens": 2304,
+    "successful_sdk_bytes_by_rank": {
+      "0": {
+        "put": 4620288,
+        "get": 5873664
+      },
+      "1": {
+        "put": 4620288,
+        "get": 5873664
+      }
+    },
+    "forced": true,
+    "capture_status": "passed",
+    "capture_errors": []
+  },
+  "raw_logit_comparisons": {
+    "0": {
+      "none_repeat": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "none_history": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "pool_vs_none_fresh": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "pool_vs_none_history": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      }
+    },
+    "1": {
+      "none_repeat": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "none_history": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "pool_vs_none_fresh": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      },
+      "pool_vs_none_history": {
+        "shape": [
+          32,
+          154880
+        ],
+        "finite": true,
+        "max_abs_error": 0.0,
+        "step_max_abs_error": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "byte_equal": true,
+        "top1_agreement": 1.0,
+        "allclose_002": true
+      }
+    }
+  },
+  "sdk_completions": {
+    "0": {
+      "capture_payload": false,
+      "get_count": 4,
+      "get_bytes_recomputed": 5873664,
+      "reported_successful_get_bytes": 5873664,
+      "all_get_success": true,
+      "completed_operations": 8,
+      "successful_completed_operations": 8,
+      "gets": [
+        {
+          "sequence": 0,
+          "layer": 0,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 0,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 1,
+          "layer": 1,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 1,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 2,
+          "layer": 2,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 2,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 3,
+          "layer": 3,
+          "bytes": 2506752,
+          "completion": {
+            "sequence": 3,
+            "success": true,
+            "result": "0"
+          }
+        }
+      ]
+    },
+    "1": {
+      "capture_payload": false,
+      "get_count": 4,
+      "get_bytes_recomputed": 5873664,
+      "reported_successful_get_bytes": 5873664,
+      "all_get_success": true,
+      "completed_operations": 8,
+      "successful_completed_operations": 8,
+      "gets": [
+        {
+          "sequence": 0,
+          "layer": 0,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 0,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 1,
+          "layer": 1,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 1,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 2,
+          "layer": 2,
+          "bytes": 1122304,
+          "completion": {
+            "sequence": 2,
+            "success": true,
+            "result": "0"
+          }
+        },
+        {
+          "sequence": 3,
+          "layer": 3,
+          "bytes": 2506752,
+          "completion": {
+            "sequence": 3,
+            "success": true,
+            "result": "0"
+          }
+        }
+      ]
+    }
+  },
+  "capture_payload": false
+}

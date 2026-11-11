@@ -1,0 +1,587 @@
+{
+  "record_type": "allowlisted excerpts of historical evidence; not a new validation run",
+  "model_scope": "GLM-5.3-Flash four-layer BF16 random checkpoint, original cache dimensions; A3, PCP2, TP1, PP1, DCP1",
+  "historical_base_commit": "6e3299ab492ddbadb4c8e3a00b88c982c9a28131",
+  "hardware_validation_note": "Historical NPU evidence predates the later KeyBuilder refactors and any rebase onto current main. It does not certify a rebased PR head.",
+  "scope": "Independent scheduler/checkpoint bug found during validation of the key fix; key isolation and transport integrity alone do not ensure checkpoint reachability.",
+  "historical_alignment_commit": "113f8acae1b2240745580217f012672134f1c2ec",
+  "sources": [
+    {
+      "file": "artifacts__s1-validation-summary.json",
+      "sha256": "9dd0614fd24bb23d2f012771ad18d749a2704c244772c9a3363c9befcbbd81ea"
+    },
+    {
+      "file": "A1_CHUNK2048.md",
+      "sha256": "a0c155bfbf6ae32f33a5b1570df67831ca73fcb21535428821940d92b70c8e28"
+    },
+    {
+      "file": "A2_CHUNK1024.md",
+      "sha256": "c7588c4abcf840d6a10a9d71c28085c9d9b90e1312d64fefcfab4890ec4f4d19"
+    },
+    {
+      "file": "a1-chunk2048/result.json",
+      "sha256": "33beb1b9f20779fc3610f074966b86d1bfc229f3d15e844d4e756e0fa72fae81"
+    },
+    {
+      "file": "a1-chunk2048/numerical.json",
+      "sha256": "eec7727214767b26cc1f173a7e71bf7767ed1b7460a5cef71803401daf8cb207"
+    },
+    {
+      "file": "a1-chunk2048/a1-no-pool-crosscheck.json",
+      "sha256": "0df790a7917d5afd34a6d5281479a9f544a5825bd3d1176669be5686c33b21a2"
+    },
+    {
+      "file": "a2-chunk1024/result.json",
+      "sha256": "0fe8b94f47c881cf90a3d54fcb5b294d0a7b5f65400f5db760040295e67d05bd"
+    },
+    {
+      "file": "a2-chunk1024/numerical.json",
+      "sha256": "ab0bebf38d49b5ab41c2c82fde27d9474a81a2e0fcbd4d8b55a753c8e86c98b8"
+    },
+    {
+      "file": "a2-chunk1024/a2-no-pool-crosscheck.json",
+      "sha256": "6950be3d29190e83f93ade3ad57f50722fb7851eadbea62e8e88897073a94c63"
+    }
+  ],
+  "before": [
+    {
+      "source_case_index": 0,
+      "case": "memcache-layerwise-1-pcp2-s1-s1024",
+      "chunk_budget": 1024,
+      "actual_cache_granularity": 1152,
+      "recorded_status": "numerical_failed",
+      "path_length": 2305,
+      "cold_vs_hit_logits": {
+        "status": "failed",
+        "finite": true,
+        "shape": [
+          32,
+          154880
+        ],
+        "max_abs_error": 8.484375,
+        "top1_agreement": 0.0
+      },
+      "copy_integrity": "passed",
+      "ownership_status": "passed",
+      "functional": [
+        {
+          "input_length": 129,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 0.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 0
+        },
+        {
+          "input_length": 2305,
+          "status": "failed",
+          "natural_token_ids_equal": false,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 2304.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 2304
+        },
+        {
+          "input_length": 9217,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 9216.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 9216
+        }
+      ],
+      "first_sampling_contexts": {
+        "cold": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2048
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2048
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ],
+        "hit": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ]
+      },
+      "old_cross_budget_no_pool_comparison_note": "The historical summary also contains a no_pool_logits field whose reference is not identified there. It is excluded from same-budget conclusions."
+    },
+    {
+      "source_case_index": 1,
+      "case": "memcache-layerwise-1-pcp2-s1-s2048",
+      "chunk_budget": 2048,
+      "actual_cache_granularity": 1152,
+      "recorded_status": "numerical_failed",
+      "path_length": 2305,
+      "cold_vs_hit_logits": {
+        "status": "passed",
+        "finite": true,
+        "shape": [
+          32,
+          154880
+        ],
+        "max_abs_error": 0.0,
+        "top1_agreement": 1.0
+      },
+      "copy_integrity": "passed",
+      "ownership_status": "passed",
+      "functional": [
+        {
+          "input_length": 129,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 0.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 0
+        },
+        {
+          "input_length": 2305,
+          "status": "failed",
+          "natural_token_ids_equal": true,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 1152.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 2304
+        },
+        {
+          "input_length": 9217,
+          "status": "failed",
+          "natural_token_ids_equal": false,
+          "reset_success": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 8064.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 9216
+        }
+      ],
+      "first_sampling_contexts": {
+        "cold": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                1152
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                1152
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ],
+        "hit": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                1152
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                1152
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ]
+      },
+      "old_cross_budget_no_pool_comparison_note": "The historical summary also contains a no_pool_logits field whose reference is not identified there. It is excluded from same-budget conclusions."
+    }
+  ],
+  "after": [
+    {
+      "case": "memcache-layerwise-1-pcp2-a1-s2048",
+      "chunk_budget": 2048,
+      "actual_cache_granularity": 1152,
+      "recorded_status": "passed",
+      "functional": [
+        {
+          "input_length": 129,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 0.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 0
+        },
+        {
+          "input_length": 2305,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 2304.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 2304
+        },
+        {
+          "input_length": 9217,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 9216.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 9216
+        }
+      ],
+      "numerical": {
+        "steps": 32,
+        "finite": true,
+        "atol": 0.02,
+        "rtol": 0.02,
+        "max_abs_error": 0.0,
+        "top1_agreement": 1.0,
+        "allclose": true
+      },
+      "same_budget_no_pool": {
+        "status": "passed",
+        "checks": {
+          "input_tokens_equal": true,
+          "continuation_equal": true,
+          "continuation_length_32": true,
+          "pcp2_both": true,
+          "chunk2048_both": true,
+          "reference_no_pool": true,
+          "candidate_memcache": true,
+          "case_status_passed_both": true,
+          "reference_actual_forcing": true,
+          "candidate_actual_forcing": true,
+          "complete_original_shape": true
+        },
+        "cold_vs_no_pool": {
+          "status": "passed",
+          "finite": true,
+          "shape": [
+            32,
+            154880
+          ],
+          "max_abs_error": 0.0,
+          "top1_agreement": 1.0
+        },
+        "hit_vs_no_pool": {
+          "status": "passed",
+          "finite": true,
+          "shape": [
+            32,
+            154880
+          ],
+          "max_abs_error": 0.0,
+          "top1_agreement": 1.0
+        }
+      },
+      "transfer_audit": {
+        "status": "passed",
+        "copy_integrity": "passed",
+        "ownership_status": "passed",
+        "captured_bytes": {
+          "put": 18481152,
+          "get": 11747328
+        },
+        "checked_get_segments": 20,
+        "cross_rank_write_conflicts": 0
+      },
+      "first_sampling_contexts": {
+        "cold": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ],
+        "hit": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "memcache-layerwise-1-pcp2-a2-s1024",
+      "chunk_budget": 1024,
+      "actual_cache_granularity": 1152,
+      "recorded_status": "passed",
+      "functional": [
+        {
+          "input_length": 129,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 0.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 0
+        },
+        {
+          "input_length": 2305,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 2304.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 2304
+        },
+        {
+          "input_length": 9217,
+          "status": "passed",
+          "natural_token_ids_equal": true,
+          "cold_external_tokens": 0.0,
+          "hot_external_tokens": 9216.0,
+          "hot_local_apc_tokens": 0.0,
+          "expected_hot_external_tokens": 9216
+        }
+      ],
+      "numerical": {
+        "steps": 32,
+        "finite": true,
+        "atol": 0.02,
+        "rtol": 0.02,
+        "max_abs_error": 0.0,
+        "top1_agreement": 1.0,
+        "allclose": true
+      },
+      "same_budget_no_pool": {
+        "status": "passed",
+        "checks": {
+          "input_tokens_equal": true,
+          "continuation_equal": true,
+          "continuation_length_32": true,
+          "pcp2_both": true,
+          "chunk1024_both": true,
+          "reference_no_pool": true,
+          "candidate_memcache": true,
+          "case_status_passed_both": true,
+          "reference_actual_forcing": true,
+          "candidate_actual_forcing": true,
+          "complete_original_shape": true
+        },
+        "cold_vs_no_pool": {
+          "status": "passed",
+          "finite": true,
+          "shape": [
+            32,
+            154880
+          ],
+          "max_abs_error": 0.0,
+          "top1_agreement": 1.0
+        },
+        "hit_vs_no_pool": {
+          "status": "passed",
+          "finite": true,
+          "shape": [
+            32,
+            154880
+          ],
+          "max_abs_error": 0.0,
+          "top1_agreement": 1.0
+        }
+      },
+      "transfer_audit": {
+        "status": "passed",
+        "copy_integrity": "passed",
+        "ownership_status": "passed",
+        "captured_bytes": {
+          "put": 18481152,
+          "get": 11747328
+        },
+        "checked_get_segments": 20,
+        "cross_rank_write_conflicts": 0
+      },
+      "first_sampling_contexts": {
+        "cold": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ],
+        "hit": [
+          {
+            "rank": 0,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          },
+          {
+            "rank": 1,
+            "context": {
+              "prefill_length": [
+                2305
+              ],
+              "computed_tokens": [
+                2304
+              ],
+              "sequence_end": [
+                2305
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "checkpoint_evidence_boundary": "The 2304 checkpoint interpretation combines source control flow, measured hit extent, sampling context and the second KDA state PUT/GET. There is no direct token-boundary-to-key publication/commit trace. Private K-pool tail state was rebuilt, not independently byte-audited."
+}
